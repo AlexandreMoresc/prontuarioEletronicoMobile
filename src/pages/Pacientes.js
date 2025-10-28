@@ -6,35 +6,30 @@ import {
   TouchableOpacity,
   StyleSheet,
   SafeAreaView,
-  FlatList, 
+  FlatList,
   StatusBar,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import PacienteCard from '../components/PacienteCard'; // Importa o nosso novo componente
 import { useNavigation } from '@react-navigation/native';
 
-// Vamos simular uma lista de pacientes. Se a lista estiver vazia, mostraremos a outra tela.
-const DADOS_EXEMPLO = [
-  {
-    id: '1',
-    nome: 'Luiza',
-    cpf: '123.456.789-00',
-    idade: '21 anos',
-    telefone: '(11) 98765-4321',
-    convenio: 'Hospitalar',
-    sexo: 'Feminino',
-    dataCadastro: '08/09/2025',
-  },
- 
-];
-
-const PacientesScreen = () => {
-  
-  const [pacientes, setPacientes] = useState(DADOS_EXEMPLO);
+export default function PacientesScreen() {
+  const [pacientes, setPacientes] = useState([
+    {
+      id: '1',
+      nome: 'Luiza',
+      cpf: '123.456.789-00',
+      idade: '21 anos',
+      telefone: '(11) 98765-4321',
+      convenio: 'Hospitalar',
+      sexo: 'Feminino',
+      dataCadastro: '08/09/2025',
+    },
+  ]);
   const navigation = useNavigation();
 
   // Componente para a tela quando a lista de pacientes está vazia
-const renderEmptyList = () => (
+  const renderEmptyList = () => (
     <View style={styles.emptyContainer}>
       <Text style={styles.emptyText}>Nenhum paciente cadastrado</Text>
       <TouchableOpacity
@@ -80,7 +75,7 @@ const renderEmptyList = () => (
       />
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -135,7 +130,6 @@ const styles = StyleSheet.create({
   listContainer: {
     padding: 15,
   },
-  // Estilos para a tela vazia
   emptyContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -162,5 +156,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-export default PacientesScreen;

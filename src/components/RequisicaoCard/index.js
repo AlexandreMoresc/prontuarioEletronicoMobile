@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const RequisicaoCard = ({ paciente, exame, status, dataSolicitacao }) => {
+export default function RequisicaoCard({ paciente, exame, status, dataSolicitacao }) {
   const statusColors = {
     Solicitado: { background: '#e7f3ff', text: '#007bff' },
     // Adicione outras cores para outros status se necessário
@@ -33,7 +33,7 @@ const RequisicaoCard = ({ paciente, exame, status, dataSolicitacao }) => {
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   card: {
@@ -86,5 +86,3 @@ const styles = StyleSheet.create({
     gap: 20,
   },
 });
-
-export default RequisicaoCard;

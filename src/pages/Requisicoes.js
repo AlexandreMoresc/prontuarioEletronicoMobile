@@ -13,31 +13,32 @@ import { Ionicons } from '@expo/vector-icons';
 import RequisicaoCard from '../components/RequisicaoCard';
 import { useNavigation } from '@react-navigation/native';
 
-const DADOS_EXEMPLO = [
-  {
-    id: '1',
-    paciente: 'Luiza',
-    exame: 'Hemograma Completo',
-    status: 'Solicitado',
-    dataSolicitacao: '08/09/2025',
-  },
-  {
-    id: '2',
-    paciente: 'Luiza',
-    exame: 'Glicose',
-    status: 'Solicitado',
-    dataSolicitacao: '08/09/2025',
-  },
-];
-
-const RequisicoesScreen = () => {
+export default function RequisicoesScreen() {
   const navigation = useNavigation();
-  const [requisicoes, setRequisicoes] = useState(DADOS_EXEMPLO);
+  const [requisicoes, setRequisicoes] = useState([
+    {
+      id: '1',
+      paciente: 'Luiza',
+      exame: 'Hemograma Completo',
+      status: 'Solicitado',
+      dataSolicitacao: '08/09/2025',
+    },
+    {
+      id: '2',
+      paciente: 'Luiza',
+      exame: 'Glicose',
+      status: 'Solicitado',
+      dataSolicitacao: '08/09/2025',
+    },
+  ]);
 
   const renderEmptyList = () => (
     <View style={styles.emptyContainer}>
       <Text style={styles.emptyText}>Nenhuma requisição cadastrada</Text>
-      <TouchableOpacity style={styles.primaryButton}>
+      <TouchableOpacity
+        style={styles.primaryButton}
+        onPress={() => navigation.navigate('NovaRequisicao')}
+      >
         <Text style={styles.primaryButtonText}>Criar Primeira Requisição</Text>
       </TouchableOpacity>
     </View>
@@ -53,7 +54,7 @@ const RequisicoesScreen = () => {
         <Text style={styles.headerTitle}>Requisições</Text>
       </View>
 
-       <View style={styles.controlsContainer}>
+      <View style={styles.controlsContainer}>
         <View style={styles.searchRow}>
           <View style={styles.searchInputWrapper}>
             <Ionicons name="search" size={20} color="#999" style={styles.searchIcon} />
@@ -62,7 +63,6 @@ const RequisicoesScreen = () => {
               placeholder="Buscar por paciente ou exame..."
             />
           </View>
-
           <TouchableOpacity
             style={styles.addButton}
             onPress={() => navigation.navigate('NovaRequisicao')}
@@ -77,7 +77,6 @@ const RequisicoesScreen = () => {
         </TouchableOpacity>
       </View>
 
-
       <FlatList
         data={requisicoes}
         keyExtractor={(item) => item.id}
@@ -87,7 +86,7 @@ const RequisicoesScreen = () => {
       />
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -168,15 +167,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#333',
   },
-  addButton: {
-     width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: '#27ae60',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 10,
-  },
   listContainer: {
     padding: 15,
   },
@@ -206,5 +196,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-export default RequisicoesScreen;

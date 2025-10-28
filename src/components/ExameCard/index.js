@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const ExameCard = ({ nome, descricao }) => {
+export default function ExameCard({ nome, descricao }) {
   return (
     <View style={styles.card}>
       <View style={styles.cardContent}>
@@ -16,7 +16,7 @@ const ExameCard = ({ nome, descricao }) => {
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   card: {
@@ -49,5 +49,3 @@ const styles = StyleSheet.create({
     marginLeft: 15,
   },
 });
-
-export default ExameCard;

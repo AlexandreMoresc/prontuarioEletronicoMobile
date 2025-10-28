@@ -1,5 +1,3 @@
-// src/pages/Login.js
-
 import React, { useState } from 'react';
 import {
   View,
@@ -14,21 +12,19 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-const LoginScreen = () => {
-    const navigation = useNavigation();
-  // useState para controlar a visibilidade da senha
+
+export default function LoginScreen() {
+  const navigation = useNavigation();
   const [senhaVisivel, setSenhaVisivel] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#E8F8F5" />
-      {/* KeyboardAvoidingView ajuda a não esconder os inputs atrás do teclado */}
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.keyboardView}
       >
         <View style={styles.card}>
-          {/* Ícone Principal */}
           <View style={styles.iconContainer}>
             <Ionicons name="document-text-outline" size={32} color="#fff" />
           </View>
@@ -36,17 +32,15 @@ const LoginScreen = () => {
           <Text style={styles.title}>Prontuário Eletrônico</Text>
           <Text style={styles.subtitle}>Faça login para acessar o sistema</Text>
 
-          {/* Campo de Usuário */}
           <Text style={styles.label}>Usuário</Text>
           <TextInput style={styles.input} placeholder="Digite seu usuário" />
 
-          {/* Campo de Senha com Ícone */}
           <Text style={styles.label}>Senha</Text>
           <View style={styles.passwordContainer}>
             <TextInput
               style={styles.passwordInput}
               placeholder="Digite sua senha"
-              secureTextEntry={!senhaVisivel} // A visibilidade depende do estado
+              secureTextEntry={!senhaVisivel}
             />
             <TouchableOpacity onPress={() => setSenhaVisivel(!senhaVisivel)}>
               <Ionicons
@@ -57,12 +51,13 @@ const LoginScreen = () => {
             </TouchableOpacity>
           </View>
 
-          {/* Botão de Entrar */}
-          <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Home')}>
+          <TouchableOpacity
+            style={styles.loginButton}
+            onPress={() => navigation.navigate('Home')}
+          >
             <Text style={styles.loginButtonText}>Entrar</Text>
           </TouchableOpacity>
 
-          {/* Credenciais de Demonstração */}
           <View style={styles.demoContainer}>
             <Text style={styles.demoText}>Credenciais de demonstração:</Text>
             <Text style={styles.demoText}>
@@ -76,12 +71,12 @@ const LoginScreen = () => {
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E8F8F5', // Verde bem claro do fundo
+    backgroundColor: '#E8F8F5',
     justifyContent: 'center',
     padding: 20,
   },
@@ -179,5 +174,3 @@ const styles = StyleSheet.create({
     color: '#27ae60',
   },
 });
-
-export default LoginScreen;

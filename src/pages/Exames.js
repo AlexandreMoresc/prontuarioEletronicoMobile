@@ -12,6 +12,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import ExameCard from '../components/ExameCard'; // Importa o nosso card
 import { useNavigation } from '@react-navigation/native';
+
 // Dados de exemplo para a lista
 const DADOS_EXEMPLO = [
   { id: '1', nome: 'Glicose', descricao: 'Mede os níveis de açúcar no sangue.' },
@@ -19,15 +20,18 @@ const DADOS_EXEMPLO = [
   { id: '3', nome: 'Colesterol Total e Frações', descricao: 'Avalia os níveis de gordura no sangue.' },
 ];
 
-const ExamesScreen = () => {
-    const navigation = useNavigation();
+export default function ExamesScreen() {
+  const navigation = useNavigation();
   const [exames, setExames] = useState(DADOS_EXEMPLO);
 
   // Componente para a tela vazia
   const renderEmptyList = () => (
     <View style={styles.emptyContainer}>
       <Text style={styles.emptyText}>Nenhum exame cadastrado</Text>
-      <TouchableOpacity style={styles.primaryButton}>
+      <TouchableOpacity
+        style={styles.primaryButton}
+        onPress={() => navigation.navigate('CadastroExame')}
+      >
         <Text style={styles.primaryButtonText}>Cadastrar Primeiro Exame</Text>
       </TouchableOpacity>
     </View>
@@ -53,7 +57,10 @@ const ExamesScreen = () => {
             placeholder="Buscar por nome do exame..."
           />
         </View>
-        <TouchableOpacity  onPress={() => navigation.navigate('CadastroExame')} style={styles.addButton}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('CadastroExame')}
+          style={styles.addButton}
+        >
           <Ionicons name="add" size={28} color="#fff" />
         </TouchableOpacity>
       </View>
@@ -67,7 +74,7 @@ const ExamesScreen = () => {
       />
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -149,5 +156,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-export default ExamesScreen;

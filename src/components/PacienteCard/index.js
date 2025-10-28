@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 // Dados de exemplo para o card. Mais tarde, virão da nossa API.
-const PacienteCard = ({ nome, cpf, idade, telefone, convenio, sexo, dataCadastro }) => {
+export default function PacienteCard({ nome, cpf, idade, telefone, convenio, sexo, dataCadastro }) {
   return (
     <View style={styles.card}>
       <View style={styles.cardHeader}>
@@ -31,7 +31,7 @@ const PacienteCard = ({ nome, cpf, idade, telefone, convenio, sexo, dataCadastro
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   card: {
@@ -94,5 +94,3 @@ const styles = StyleSheet.create({
     color: '#888',
   },
 });
-
-export default PacienteCard;

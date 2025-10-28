@@ -12,9 +12,8 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-
-const CadastroExameScreen = () => {
-    const navigation = useNavigation();
+export default function CadastroExameScreen() {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#16a085" />
@@ -56,7 +55,7 @@ const CadastroExameScreen = () => {
       </ScrollView>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -139,5 +138,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-export default CadastroExameScreen;

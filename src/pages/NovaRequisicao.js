@@ -1,5 +1,3 @@
-// src/pages/NovaRequisicao.js
-
 import React from 'react';
 import {
   View,
@@ -12,9 +10,11 @@ import {
   StatusBar,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native'; 
-const NovaRequisicaoScreen = () => {
-    const navigation = useNavigation();
+import { useNavigation } from '@react-navigation/native';
+
+export default function NovaRequisicaoScreen() {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#16a085" />
@@ -66,7 +66,7 @@ const NovaRequisicaoScreen = () => {
       </ScrollView>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 20,
-    gap: 10, // Adiciona um espaço entre os botões
+    gap: 10,
   },
   button: {
     flex: 1,
@@ -164,5 +164,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-export default NovaRequisicaoScreen;

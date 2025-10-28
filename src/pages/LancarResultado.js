@@ -1,5 +1,3 @@
-// src/pages/LancarResultado.js
-
 import React from 'react';
 import {
   View,
@@ -13,8 +11,10 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-const LancarResultadoScreen = () => {
-    const navigation = useNavigation();
+
+export default function LancarResultadoScreen() {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#16a085" />
@@ -27,7 +27,6 @@ const LancarResultadoScreen = () => {
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Lançar Resultado</Text>
         </View>
-       
       </View>
 
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -71,7 +70,7 @@ const LancarResultadoScreen = () => {
       </ScrollView>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -91,19 +90,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 15,
   },
-  headerRight: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
   headerTitle: {
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
-  },
-  adminText: {
-    color: '#fff',
-    fontSize: 14,
   },
   scrollContainer: {
     padding: 20,
@@ -172,7 +162,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   primaryButton: {
-    backgroundColor: '#58D68D', 
+    backgroundColor: '#58D68D',
   },
   primaryButtonText: {
     color: '#fff',
@@ -190,5 +180,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-export default LancarResultadoScreen;

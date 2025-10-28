@@ -1,5 +1,3 @@
-// src/pages/Resultados.js
-
 import React from 'react';
 import {
   View,
@@ -12,9 +10,10 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-const ResultadosScreen = () => {
-    const navigation = useNavigation();
-    
+
+export default function ResultadosScreen() {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#16a085" />
@@ -35,12 +34,14 @@ const ResultadosScreen = () => {
             placeholder="Buscar por paciente, exame ou resultado..."
           />
         </View>
-        <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate('LancarResultado')}>
+        <TouchableOpacity
+          style={styles.addButton}
+          onPress={() => navigation.navigate('LancarResultado')}
+        >
           <Ionicons name="add" size={28} color="#fff" />
         </TouchableOpacity>
       </View>
 
-     
       <View style={styles.content}>
         <View style={styles.emptyCard}>
           <Text style={styles.emptyText}>Nenhum resultado lançado</Text>
@@ -51,7 +52,7 @@ const ResultadosScreen = () => {
       </View>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -136,5 +137,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-export default ResultadosScreen;

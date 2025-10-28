@@ -1,4 +1,3 @@
-
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import {
@@ -15,7 +14,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const CadastroPacienteScreen = () => {
+export default function CadastroPacienteScreen() {
   const navigation = useNavigation();
   // Estados para cada campo
   const [nome, setNome] = useState('');
@@ -184,7 +183,7 @@ const CadastroPacienteScreen = () => {
       </ScrollView>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -230,6 +229,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 15,
   },
+  inputWithIcon: {
+    flex: 1,
+    height: 50,
+    paddingHorizontal: 15,
+    fontSize: 16,
+  },
   inputIconContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -239,33 +244,22 @@ const styles = StyleSheet.create({
     borderColor: '#e9ecef',
     marginBottom: 15,
   },
-  inputWithIcon: {
-    flex: 1,
-    height: 50,
-    paddingHorizontal: 15,
-    fontSize: 16,
-  },
   icon: {
-    marginHorizontal: 15,
+    paddingHorizontal: 10,
   },
-  dropdown: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+  pickerContainer: {
     backgroundColor: '#f8f9fa',
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#e9ecef',
-    paddingHorizontal: 15,
-    height: 50,
     marginBottom: 15,
   },
-  dropdownText: {
-    fontSize: 16,
-    color: '#333',
+  picker: {
+    height: 50,
+    width: '100%',
   },
   textArea: {
-    height: 100,
+    height: 120,
     textAlignVertical: 'top',
     paddingTop: 15,
   },
@@ -273,10 +267,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 20,
+    gap: 10,
   },
   button: {
     flex: 1,
-    marginHorizontal: 5,
     height: 50,
     borderRadius: 8,
     alignItems: 'center',
@@ -300,17 +294,4 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
-  pickerContainer: {
-    backgroundColor: '#f8f9fa',
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#e9ecef',
-    marginBottom: 15,
-  },
-  picker: {
-    height: 50,
-    width: '100%',
-  },
 });
-
-export default CadastroPacienteScreen;
